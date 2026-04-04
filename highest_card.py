@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import random
 
 def diam_ace():
@@ -397,19 +398,28 @@ def check_win():
         print("  Player wins! ")
     elif computer_card in aces and player_card not in aces:
         print("  Computer wins! ")
-    elif player_card in kings and computer_card in queens or jesters or tens:
-        print("  Player wins! ")
-    elif computer_card in kings and player_card in queens or jesters or tens:
+    elif player_card in tens and computer_card not in tens:
         print("  Computer wins! ")
-    elif player_card in queens and computer_card in jesters or tens:
+    elif computer_card in tens and player_card not in tens:
         print("  Player wins! ")
-    elif computer_card in queens and player_card in jesters or tens:
-        print("  Computer wins! ")
-    elif player_card in jesters and computer_card in tens:
+    elif player_card in kings and computer_card in queens:
         print("  Player wins! ")
-    elif computer_card in jesters and player_card in tens:
+    elif computer_card in kings and player_card in queens:
         print("  Computer wins! ")
-
+    elif player_card in kings or queens and computer_card in jesters:
+        print("  Player wins! ")
+    elif computer_card in kings or queens and player_card in jesters:
+        print("  Computer wins! ")
+    elif player_card in kings or queens and computer_card in tens:
+        print("  Player wins! ")
+    elif computer_card in kings or queens and player_card in tens:
+        print("  Computer wins! ")
+    elif player_card in queens or jesters and computer_card in tens:
+        print("  Player wins! ")
+    elif computer_card in queens or jesters and player_card in tens:
+        print("  Computer wins! ")
+    
+    
 check=check_win()
 print()
 
