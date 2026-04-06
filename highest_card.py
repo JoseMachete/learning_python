@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-import sys
+import os
+from time import sleep
 import random
 
 def diam_ace():
@@ -378,9 +379,11 @@ options = [diam_ace, hear_ace, club_ace, spad_ace, diam_king, hear_king, club_ki
 
 player_card=random.choice(options)
 computer_card=random.choice(options)
+os.system ('clear')
 card_picks={"  Player gets the... ": player_card(), "  Computer gets the... ": computer_card()}
-    
+
 print(card_picks)
+sleep(1)
 print()
 
 def check_win():
@@ -422,4 +425,5 @@ def check_win():
     
 check=check_win()
 print()
+sleep(1)
 
