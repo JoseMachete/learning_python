@@ -21,31 +21,34 @@ full_poker_deck = {'Ace of Diamonds':14, 'Ace of Hearts':14, 'Ace of Clubs':14, 
 'Three of Diamonds':3, 'Three of Hearts':3, 'Three of Clubs':3, 'Three of Spades':3,
 'Deuce of Diamonds':2, 'Deuce of Hearts':2, 'Deuce of Clubs':2, 'Deuce of Spades':2}
 
-player_hand = []
-computer_hand = []
-
 os.system('clear')
 
-def dealing():
+def player_dealing():
     player_hand=random.sample(sorted(full_poker_deck.items()),3)
-    computer_hand=random.sample(sorted(full_poker_deck.items()),3)
     print()
     print(f"\n  Player's hand is: \n")
     print(sorted(player_hand, reverse=True, key=lambda x:x[1]))
+            
+    return player_hand
+
+def computer_dealing():
+    computer_hand=random.sample(sorted(full_poker_deck.items()),3)
     print()
     print(f"\n  Computer's hand is: \n")
     print(sorted(computer_hand, reverse=True, key=lambda x:x[1]))
-    print()
-    return player_hand, computer_hand
-   
-dealing()
+        
+    return computer_hand
 
-if player_hand < computer_hand:
+player_hand = player_dealing()
+computer_hand = computer_dealing()
+
+if player_hand > computer_hand:
     print(f"\n  Computer wins!\n")
-elif computer_hand < player_hand:
+elif computer_hand > player_hand:
     print(f"\n  Player wins!\n")
-elif player_hand == computer_hand:
+else:
     print(f"\n  We have a tie, draw again!\n")
 
 print()
 sleep(1)
+
